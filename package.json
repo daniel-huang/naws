@@ -1,0 +1,25 @@
+{
+  "name": "naws",
+  "version": "0.1.0",
+  "description": "Not Another Web Server",
+  "main": "naws/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/soggie/naws.git"
+  },
+  "keywords": [
+    "webserver",
+    "zeromq",
+    "0mq",
+    "zmq"
+  ],
+  "author": "Ruben LZ Tan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/soggie/naws/issues"
+  },
+  "homepage": "https://github.com/soggie/naws"
+}
