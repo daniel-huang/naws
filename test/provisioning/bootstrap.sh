@@ -50,3 +50,11 @@ fi
     echo "${PX}Failed to install python-zmq"
   fi
 }
+
+#------------------------------------------------------------------------------
+# Install node.js
+#------------------------------------------------------------------------------
+which nodejs || {
+  echo "${PX}Installing nodejs..."
+  add-apt-repository -y ppa:chris-lea/node.js && apt-get update && apt-get install nodejs -y
+}

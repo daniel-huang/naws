@@ -29,3 +29,6 @@ node_modules
 
 
 .vagrant
+.DS_Store
+
+test/talk/pid/*.pid
