@@ -24,14 +24,14 @@
  */
 'use strict';
 
-var zmq    = require('zmq');
-var req    = zmq.socket('req');
-var res    = zmq.socket('rep');
-var crypt  = require('crypto');
-var colors = require('colors');
-var rotate = ['red', 'green', 'blue', 'yellow', 'magenta', 'cyan', 'white', 'gray', 'red', 'green', 'blue', 'yellow', 'magenta', 'cyan', 'white', 'gray'];
-var work   = require('./binarytree');
-var ran    = require('./random');
+var zmq   = require('zmq');
+var req   = zmq.socket('req');
+var res   = zmq.socket('rep');
+var crypt = require('crypto');
+
+var work  = require('./binarytree');
+var ran   = require('./random').ran;
+var color = require('./random').color;
 
 // Bind the REP socket
 res.bindSync('inproc://exhibit-a');
@@ -55,7 +55,7 @@ res.on('message', function (msg) {
 
 setInterval(function () {
   
-  var msg = (ran(1000, 1000) + '')[rotate[ran(16)]];
+  var msg = color(ran(1000, 1000) + '');
 
   console.log('- send: ' + msg);
   req.send(msg);
