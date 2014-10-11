@@ -34,7 +34,7 @@ var ran   = require('./random').ran;
 var color = require('./random').color;
 
 // Bind the REP socket
-res.bindSync('inproc://exhibit-a');
+res.bind('inproc://exhibit-a');
 console.log('- RES bound to "inproc://exhibit-a"');
 
 // Make the REQ socket connect to the REP socket
