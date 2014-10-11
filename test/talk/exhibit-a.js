@@ -31,6 +31,7 @@ var crypt  = require('crypto');
 var colors = require('colors');
 var rotate = ['red', 'green', 'blue', 'yellow', 'magenta', 'cyan', 'white', 'gray', 'red', 'green', 'blue', 'yellow', 'magenta', 'cyan', 'white', 'gray'];
 var work   = require('./binarytree');
+var ran    = require('./random');
 
 // Bind the REP socket
 res.bindSync('inproc://exhibit-a');
@@ -54,7 +55,7 @@ res.on('message', function (msg) {
 
 setInterval(function () {
   
-  var msg = (Math.floor(Math.random() * 1000 + 1000) + '')[rotate[Math.floor(Math.random() * 16)]];
+  var msg = (ran(1000, 1000) + '')[rotate[ran(16)]];
 
   console.log('- send: ' + msg);
   req.send(msg);
