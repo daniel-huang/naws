@@ -15,3 +15,5 @@ Once you have done so, follow these steps:
 5. `sudo -s`
 6. `cd talk`
 7. `node <exhibit-filename>` and enjoy!
+
+[Slideshare link - Leveraging ZeroMQ for Node.js](http://www.slideshare.net/rubentan/leveraging-zeromq-for-nodejs)
