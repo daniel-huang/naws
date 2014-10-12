@@ -128,6 +128,5 @@ http.createServer(function (req, res) {
   }, TIMEOUT);
 
 }).listen(PORT, function () {
-
   console.log('HTTP server listening on port ' + PORT);
 });

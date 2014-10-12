@@ -1,8 +1,13 @@
 'use strict';
 
-var zmq  = require('zmq');
-var pull = zmq.socket('pull');
-var pub  = zmq.socket('pub');
+var 
+  zmq  = require('zmq'),
+  pull = zmq.socket('pull'),
+  pub  = zmq.socket('pub'),
+  
+  PULL = 'tcp://127.0.0.1:13371',
+  PUB  = 'tcp://127.0.0.1:13372'
+;
 
 function handlePull(msg) {
   var parsed;
@@ -11,10 +16,9 @@ function handlePull(msg) {
 
   // parse this because we need the ID
   try {
-    console.log(msg);
     parsed = JSON.parse(msg);
   } catch (err) {
-    // ouch
+    // ouch. Ignore this, the request will timeout on the server side.
     console.log(err);
     return;
   }
@@ -26,8 +30,8 @@ function handlePull(msg) {
 pull.on('message', handlePull);
 
 process.nextTick(function () {
-  pull.connect('tcp://127.0.0.1:13371');
-  pub.connect('tcp://127.0.0.1:13372');
+  pull.connect(PULL);
+  pub.connect(PUB);
 
   pull.monitor();
   pull.on('connect', function () {
